@@ -1,4 +1,4 @@
-# CRUD-TS
+# Api Rest com testes Jest
 ## Sobre o Projeto
 
 Esta é um API Rest com testes Jest.
@@ -13,8 +13,8 @@ Esta é um API Rest com testes Jest.
 
 ## Tecnologias:
 
-- <a href="https://reactjs.org/">
-  <img alt="ReactJS" src="https://img.shields.io/static/v1?color=blue&label=React&message=JS&?style=plastic&logo=React">
+- <a href="https://expressjs.com/pt-br/">
+  <img alt="ReactJS" src="https://img.shields.io/badge/Using%20-express-blue">
 </a>
 
 - <a href="https://axios-http.com/ptbr/docs/intro">
@@ -30,21 +30,14 @@ Esta é um API Rest com testes Jest.
 ### Rodando a aplicação web
 
 ```bash
-# Instale as o CLI do firebase
-$ npm install -g firebase-tools
-
-# Para o backend
-$ npm install
-$ npm run build
-$ firebase serve
-
-# Para o frontend
-$ npm install
+# Instale as dependências
+$ npm install 
+# Para rodar em modo de desenvolvimento use
 $ npm run dev
+# Faça as configurações do seu banco de dados com o arquirvo .env
 
-#Note que para uso será necessário a instalação do firebase CLI
 
-# A aplicação React iniciara na porta:3000 - acesse http://localhost:8080
+# A aplicação React iniciara na porta:3000 - acesse http://localhost:3000
 ```
 ## 📝 Licença
 
