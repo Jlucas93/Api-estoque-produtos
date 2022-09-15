@@ -17,9 +17,6 @@ Esta é um API Rest com testes Jest.
   <img alt="ReactJS" src="https://img.shields.io/badge/Using%20-express-blue">
 </a>
 
-- <a href="https://axios-http.com/ptbr/docs/intro">
-  <img alt="Axios" src="https://img.shields.io/badge/Using-Axios-blue">
-</a>
 
 - <a href="https://nodejs.org/en/about/">
   <img alt="NodeJs" src="https://img.shields.io/badge/Using-NodeJS-blue">
