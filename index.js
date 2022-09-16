@@ -3,6 +3,7 @@ const app = express();
 require('dotenv').config()
 //Routes
 const homeRouter = require('./src/routes/home')
+const categoriasRouter = require('./src/routes/categoria')
 
 
 //Starting the server
@@ -14,4 +15,4 @@ app.use(express.json())
 
 
 app.use(homeRouter)
-
+app.use(categoriasRouter)

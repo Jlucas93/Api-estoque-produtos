@@ -25,7 +25,7 @@ module.exports = {
       descricao: Sequelize.TEXT,
       valor: Sequelize.DECIMAL,
       status: Sequelize.INTEGER
-    });
+    })
   },
 
   async down(queryInterface, _Sequelize) {
