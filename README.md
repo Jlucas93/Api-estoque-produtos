@@ -14,12 +14,18 @@ Esta é um API Rest com testes Jest.
 ## Tecnologias:
 
 - <a href="https://expressjs.com/pt-br/">
-  <img alt="ReactJS" src="https://img.shields.io/badge/Using%20-express-blue">
+  <img alt="ExpressJs" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
 </a>
 
+- <a href="https://sequelize.org/">
+  <img alt="Sequelize" src="https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue">
+</a>
+- <a href="https://www.mysql.com/">
+  <img alt="MySQL" src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
+</a>
 
 - <a href="https://nodejs.org/en/about/">
-  <img alt="NodeJs" src="https://img.shields.io/badge/Using-NodeJS-blue">
+  <img alt="NodeJs" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
 </a>
 
 
@@ -32,9 +38,9 @@ $ npm install
 # Para rodar em modo de desenvolvimento use
 $ npm run dev
 # Faça as configurações do seu banco de dados com o arquirvo .env
+Criar um arquivo .env e inserir as informações do seu banco
 
-
-# A aplicação React iniciara na porta:3000 - acesse http://localhost:3000
+# A aplicação React iniciara na porta:3000 caso nenhuma informação seja passada na variável de ambiente - acesse http://localhost:3000
 ```
 ## 📝 Licença
 
