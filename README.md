@@ -2,6 +2,8 @@
 ## Sobre o Projeto
 
 Esta é um API Rest com testes Jest.
+Para uso lembre-se de criar um arquivo .env e inserir as informações do seu banco de acordo com o arquivo 
+.env.example
 
 <p align="center">
 <a href="https://www.linkedin.com/in/jo%C3%A3o-lucas-nascimento-andrade-34574398/">
@@ -12,6 +14,10 @@ Esta é um API Rest com testes Jest.
 </p>
 
 ## Tecnologias:
+
+- <a href="https://nodejs.org/en/about/">
+  <img alt="NodeJs" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
+</a>
 
 - <a href="https://expressjs.com/pt-br/">
   <img alt="ExpressJs" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
@@ -25,12 +31,6 @@ Esta é um API Rest com testes Jest.
   <img alt="MySQL" src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
 </a>
 
-- <a href="https://nodejs.org/en/about/">
-  <img alt="NodeJs" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
-</a>
-
-
-
 ### Rodando a aplicação web
 
 ```bash
@@ -38,8 +38,7 @@ Esta é um API Rest com testes Jest.
 $ npm install 
 # Para rodar em modo de desenvolvimento use
 $ npm run dev
-# Faça as configurações do seu banco de dados com o arquirvo .env
-Criar um arquivo .env e inserir as informações do seu banco
+# Faça as configurações do seu banco de dados com o arquirvo .env confome o arqueivo .env.example
 
 # A aplicação React iniciara na porta:3000 caso nenhuma informação seja passada na variável de ambiente - acesse http://localhost:3000
 ```
