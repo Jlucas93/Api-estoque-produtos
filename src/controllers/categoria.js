@@ -73,9 +73,6 @@ const categoriaController = {
   destroy: async (req, res) => {
     const { id } = req.params
     try {
-      await Categoria.destroy({
-        where: { id: id }
-      })
       await Produto.update({
         idCategoria: null
       }, {
@@ -83,6 +80,10 @@ const categoriaController = {
           idCategoria: id
         }
       })
+      await Categoria.destroy({
+        where: { id: id }
+      })
+
       return res.status(200).json('Category deleted')
     } catch (error) {
       console.log(error)
