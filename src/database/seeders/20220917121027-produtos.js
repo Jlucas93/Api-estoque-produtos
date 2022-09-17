@@ -9,7 +9,7 @@ module.exports = {
         codigo: 'iphone14-1',
         nome: 'Iphone 14',
         descricao: 'Novo Lançamento da Apple,iphone 14 Pro Max 128gb, com suporte a tecnologia 5G',
-        valor: 9.899,
+        valor: 9899.99,
         status: 1
       },
       {
@@ -17,7 +17,7 @@ module.exports = {
         codigo: 'iphone13-2',
         nome: 'Iphone 13',
         descricao: 'Apple iPhone 13 Pro Max (1 TB) - Azul Sierra',
-        valor: 11.999,
+        valor: 11999.99,
         status: 1
       },
       {
@@ -33,7 +33,7 @@ module.exports = {
         codigo: 'notebookacer-4',
         nome: 'Notebook Gamer Acer Nitro 5',
         descricao: 'Intel Core I7, 8GB, 512GB SSD, GTX 1650, 17.3", Windows 11 Home - AN517-52-77KZ',
-        valor: 8.999,
+        valor: 5999.99,
         status: 1
       },
       {
@@ -41,7 +41,7 @@ module.exports = {
         codigo: 'ipadpro-5',
         nome: 'Ipad Pro Apple',
         descricao: 'Tela 12.9, WiFi, 256GB, Cinza Espacial - MXAT2BZ/A',
-        valor: 8.999,
+        valor: 8999.99,
         status: 1
       }
 
