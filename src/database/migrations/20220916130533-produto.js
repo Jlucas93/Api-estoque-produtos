@@ -15,7 +15,7 @@ module.exports = {
           model: 'Categorias',
           key: 'id'
         },
-        allowNull: false
+        allowNull: true
       },
       codigo: Sequelize.STRING,
       nome: {
