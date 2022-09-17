@@ -1,7 +1,7 @@
 # Api Rest com testes Jest
 ## Sobre o Projeto
  
-Esta é um API Rest com testes Jest, utilizando sequilize como ORM para conexeção e uso do banco de dados MySql. E usando express para o servidor.
+Esta é um API Rest com testes Jest, utilizando sequilize como ORM para conexão e uso do banco de dados MySql. E usando express para o servidor.
 
 Abaixo segue as rotas existentas
 
