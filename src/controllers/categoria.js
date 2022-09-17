@@ -32,6 +32,9 @@ const categoriaController = {
       titulo,
       status
     } = req.body
+    if (status !== 0 && status !== 1) {
+      return res.status(500).json({ Message: 'Status must be 0 or 1' })
+    }
     try {
       const categoria = await Categoria.create({
         codigo,
@@ -52,6 +55,9 @@ const categoriaController = {
       titulo,
       status
     } = req.body
+    if (status && status !== 0 && status !== 1) {
+      return res.status(500).json({ Message: 'Status must be 0 or 1' })
+    }
     try {
       const categoria = await Categoria.findOne({ where: { id: id } })
       if (!categoria) {
