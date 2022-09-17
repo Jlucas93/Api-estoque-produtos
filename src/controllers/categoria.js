@@ -57,7 +57,7 @@ const categoriaController = {
       if (!categoria) {
         return res.status(404).json({ Message: 'Category Not Found' })
       }
-      const novaCategoria = await Categoria.update({
+      await Categoria.update({
         codigo,
         titulo,
         status
