@@ -1,9 +1,30 @@
 # Api Rest com testes Jest
 ## Sobre o Projeto
+ 
+Esta é um API Rest com testes Jest, utilizando sequilize como ORM para conexeção e uso do banco de dados MySql. E usando express para o servidor.
 
-Esta é um API Rest com testes Jest.
-Para uso lembre-se de criar um arquivo .env e inserir as informações do seu banco de acordo com o arquivo 
-.env.example
+Abaixo segue as rotas existentas
+
+```Bash
+
+[GET] 	 /categorias 
+[GET] 	 /categorias/:id 	
+[POST] 	 /categorias 
+[PATCH]  /categorias/:id 	
+[DELETE] /categorias/:id	
+
+[GET] 	 /produtos 		
+[GET] 	 /produtos/:id 		
+[POST] 	 /produtos 	
+[PATCH]  /produtos/:id 	
+[DELETE] /produtos/:id
+
+[GET] 	 /produtos/:id/estoque	
+[PATCH]  /produtos/:id/estoque
+[DELETE] /produtos/:id/estoque
+
+```
+
 
 <p align="center">
 <a href="https://www.linkedin.com/in/jo%C3%A3o-lucas-nascimento-andrade-34574398/">
@@ -15,32 +36,51 @@ Para uso lembre-se de criar um arquivo .env e inserir as informações do seu ba
 
 ## Tecnologias:
 
-- <a href="https://nodejs.org/en/about/">
+<a href="https://nodejs.org/en/about/">
   <img alt="NodeJs" src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white">
 </a>
 
-- <a href="https://expressjs.com/pt-br/">
+<a href="https://expressjs.com/pt-br/">
   <img alt="ExpressJs" src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge">
 </a>
 
-- <a href="https://sequelize.org/">
+<a href="https://jestjs.io/pt-BR/">
+  <img alt="Jest" src="https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white">
+</a>
+
+<a href="https://sequelize.org/">
   <img alt="Sequelize" src="https://img.shields.io/badge/sequelize-323330?style=for-the-badge&logo=sequelize&logoColor=blue">
 </a>
 
-- <a href="https://www.mysql.com/">
+<a href="https://www.mysql.com/">
   <img alt="MySQL" src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white">
 </a>
 
-### Rodando a aplicação web
+### Como Rodar a aplicação
 
 ```bash
+#Faça um clone da aplicação
+$ git clone https://github.com/Jlucas93/apiJest.git
+
 # Instale as dependências
 $ npm install 
-# Para rodar em modo de desenvolvimento use
-$ npm run dev
-# Faça as configurações do seu banco de dados com o arquirvo .env confome o arqueivo .env.example
 
-# A aplicação React iniciara na porta:3000 caso nenhuma informação seja passada na variável de ambiente - acesse http://localhost:3000
+#Crie um arquivo .env na pasta raiz, de acordo com o arquivo .env.example encontrado na pasta raiz, insira as informações do seu banco de dados.
+
+#Rode o comando para inicar as configurações do sequelize
+$npx sequelize init:config
+
+#Criando as tabelas do banco com as migrations
+$npx sequelize db:migrate
+
+#Populando o banco com alguns dados de exemplo
+$npx sequelize db:seed:all
+
+# Para rodar em modo de desenvolvimento com o nodemon execute 
+$ npm run dev
+
+
+# A aplicação irá iniciar na porta:3000 caso nenhuma informação seja passada na variável de ambiente - acesse http://localhost:3000
 ```
 ## 📝 Licença
 
