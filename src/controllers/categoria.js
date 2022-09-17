@@ -53,7 +53,11 @@ const categoriaController = {
       status
     } = req.body
     try {
-      const categoria = await Categoria.update({
+      const categoria = await Categoria.findOne({ where: { id: id } })
+      if (!categoria) {
+        return res.status(404).json({ Message: 'Category Not Found' })
+      }
+      const novaCategoria = await Categoria.update({
         codigo,
         titulo,
         status
@@ -63,7 +67,7 @@ const categoriaController = {
             id: id
           }
         })
-      return res.status(200).json({ categoria })
+      return res.status(200).json({ Message: "Category Updated" })
     } catch (error) {
       console.log(error)
 
