@@ -16,3 +16,7 @@ app.use(express.json())
 
 app.use(homeRouter)
 app.use(categoriasRouter)
+
+app.use((_req, res, _next) => {
+  return res.status(404).json({ Message: "This route doesn't exist" });
+})

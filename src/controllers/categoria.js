@@ -16,7 +16,9 @@ const categoriaController = {
     const { id } = req.params
     try {
       const categoria = await Categoria.findOne({ where: { id: id } })
-
+      if (!categoria) {
+        return res.status(404).json({ Message: 'Category Not Found' })
+      }
       return res.status(200).json(categoria)
     } catch (error) {
       console.log(error)
