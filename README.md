@@ -3,7 +3,7 @@
  
 Esta é um API Rest com testes Jest, utilizando sequilize como ORM para conexão e uso do banco de dados MySql. E usando express para o servidor.
 
-Abaixo segue as rotas existentas
+Abaixo segue as rotas existentes
 
 ```Bash
 
