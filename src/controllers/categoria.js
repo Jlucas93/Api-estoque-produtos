@@ -38,7 +38,7 @@ const categoriaController = {
         titulo,
         status
       })
-      return res.status(201).json({ categoria: categoria })
+      return res.status(201).json({ Categoria: categoria })
     } catch (error) {
       console.log(error)
 
