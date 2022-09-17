@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
     },
     descricao: DataTypes.TEXT,
-    valor: DataTypes.DECIMAL,
+    valor: DataTypes.DECIMAL(5, 2),
     status: DataTypes.INTEGER
 
   },

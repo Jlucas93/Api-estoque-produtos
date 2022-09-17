@@ -23,7 +23,7 @@ module.exports = {
         allowNull: false,
       },
       descricao: Sequelize.TEXT,
-      valor: Sequelize.DECIMAL,
+      valor: Sequelize.DECIMAL(5, 2),
       status: Sequelize.INTEGER
     })
   },
