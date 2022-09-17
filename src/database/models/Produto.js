@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Categorias',
         key: 'id'
       },
-      allowNull: false
+      allowNull: true
     },
     codigo: DataTypes.STRING,
     nome: {
