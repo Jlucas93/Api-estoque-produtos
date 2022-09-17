@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Produtos',
         key: 'id'
       },
+      unique: true,
       allowNull: false
     },
     quantidade: DataTypes.INTEGER,
