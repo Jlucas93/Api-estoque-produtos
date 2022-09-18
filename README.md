@@ -87,10 +87,14 @@ $ npm run dev
 
 #Execute o comando
 $ npx coss-env DB_NAME=test sequelize db:create
+
 #Após criado o bando de dados para testes execute o comando para rodar todos os testes
 $ npm run test
 
 #Ele irá popular o banco, rodar os testes e depois apagar os dados do banco
+
+#Caso deseje rodar um teste especifico basta passar o nome dele, como por exemplo categoria
+$ npm test categoria
 ```
 ## 📝 Licença
 
