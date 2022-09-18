@@ -1,5 +1,5 @@
 const dbConnection = require('../../src/database/models')
-const { Produto } = require('../../src/database/models')
+const { Produto, Estoque } = require('../../src/database/models')
 
 
 describe('Teste Unitários Produto', () => {
@@ -12,6 +12,13 @@ describe('Teste Unitários Produto', () => {
       valor: 353.63,
       status: 0
     })
+    const estoque = await Estoque.create({
+      idProduto: produto.id,
+      quantidade: 0,
+      reserva: 0,
+      status: 0
+    })
+    expect(estoque.idProduto).toBe(1)
     expect(produto).toBeDefined()
   })
 
@@ -28,7 +35,8 @@ describe('Teste Unitários Produto', () => {
     expect(produto).toBeDefined()
     expect(produto.codigo).toBe('NovoCodigo1')
   })
-  it('Deletando uma produto', async () => {
+  it('Deletando uma produto e seu estoque', async () => {
+    await Estoque.destroy({ where: { idProduto: 1 } })
     await Produto.destroy({ where: { id: 1 } })
     const produto = await Produto.findOne({ where: { id: 1 } })
 
