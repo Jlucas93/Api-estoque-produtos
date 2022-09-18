@@ -2,7 +2,7 @@ const dbConnection = require('../../src/database/models')
 const { Categoria } = require('../../src/database/models')
 
 
-describe('Criando Categoria', () => {
+describe('Teste Unitários Categoria', () => {
   it("Criando nova categoria", async () => {
     const categoria = await Categoria.create({
       codigo: 'novoCodigo',
