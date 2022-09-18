@@ -82,6 +82,16 @@ $ npm run dev
 
 # A aplicação irá iniciar na porta:3000 caso nenhuma informação seja passada na variável de ambiente - acesse http://localhost:3000
 ```
+### Como rodar os testes
+```bash
+
+#Execute o comando
+$ npx coss-env DB_NAME=test sequelize db:create
+#Após criado o bando de dados para testes execute o comando para rodar todos os testes
+$ npm run test
+
+#Ele irá popular o banco, rodar os testes e depois apagar os dados do banco
+```
 ## 📝 Licença
 
 Este projeto esta sobe a licença MIT. Veja a <a href="https://opensource.org/licenses/MIT">licença MIT</a> para saber mais.
