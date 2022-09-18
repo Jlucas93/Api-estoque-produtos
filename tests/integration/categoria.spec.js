@@ -24,21 +24,21 @@ describe('CATEGORIAS', () => {
 
       expect(response.status).toEqual(500)
     })
-  //Rotas do tipo GET
+  //Rotas de GET
   it('Retorna uma lista de todas categorias', async () => {
     const response = await request(server).get('/categorias')
 
-    expect(response.ok).toBeTruthy
+    expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
-    expect(response.body).toBeDefined
+    expect(response.body).toBeDefined()
   })
 
   it('Retorna uma categoria', async () => {
     const response = await request(server).get('/categorias/1')
 
-    expect(response.ok).toBeTruthy
+    expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
-    expect(response.body).toBeDefined
+    expect(response.body).toBeDefined()
   })
 
   it('Resposta 404 para uma categoria que não existe', async () => {
