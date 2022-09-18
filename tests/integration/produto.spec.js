@@ -31,21 +31,21 @@ describe('PRODUTOS', () => {
     expect(response.status).toEqual(500)
   })
 
-  //Rotas do tipo GET
+  //Rotas de GET
   it('Retorna uma lista de todos produtos', async () => {
     const response = await request(server).get('/produtos')
 
-    expect(response.ok).toBeTruthy
+    expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
-    expect(response.body).toBeDefined
+    expect(response.body).toBeDefined()
   })
 
   it('Retorna uma produto', async () => {
     const response = await request(server).get('/produtos/1')
 
-    expect(response.ok).toBeTruthy
+    expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
-    expect(response.body).toBeDefined
+    expect(response.body).toBeDefined()
   })
 
   it('Resposta 404 para uma produto que não existe', async () => {
@@ -63,7 +63,7 @@ describe('PRODUTOS', () => {
     expect(response.ok).toBeTruthy()
   })
 
-  it('Não é possível alterar o status de uma categoria para valores diferentes de 0 e 1', async () => {
+  it('Não é possível alterar o status de um produto para valores diferentes de 0 e 1', async () => {
     const response = await request(server).patch('/produtos/1').send({
       status: 5
     })
@@ -71,8 +71,8 @@ describe('PRODUTOS', () => {
     expect(response.status).toEqual(500)
   })
 
-  it('Caso o produto não exista, deve retornar status 404, não encontrada', async () => {
-    const response = await request(server).patch('/categorias/1000').send({
+  it('Caso o produto não exista, deve retornar status 404, não encontrado', async () => {
+    const response = await request(server).patch('/produtos/1000').send({
       titulo: 'Novo titulo',
       codigo: 'NovoCodigo',
       status: 0
