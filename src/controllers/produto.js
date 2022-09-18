@@ -40,7 +40,7 @@ const produtoController = {
       return res.status(500).json({ Message: 'Status must be 0 or 1' })
     }
     try {
-      const novoProduto = await Produto.create({
+      const produto = await Produto.create({
         idCategoria,
         codigo,
         nome,
@@ -49,12 +49,12 @@ const produtoController = {
         status
       })
       await Estoque.create({
-        idProduto: novoProduto.id,
+        idProduto: produto.id,
         quantidade: 0,
         reserva: 0,
         status: 0
       })
-      return res.status(201).json({ Produto: novoProduto })
+      return res.status(201).json({ Produto: produto })
     } catch (error) {
       console.log(error)
       return res.status(500).json('Error, product not created')
@@ -104,6 +104,10 @@ const produtoController = {
   destroy: async (req, res) => {
     const { id } = req.params
     try {
+      const produto = await Produto.findOne({ where: { id: id } })
+      if (!produto) {
+        return res.status(404).json({ Message: 'Category Not Found' })
+      }
       await Estoque.destroy({
         where: { idProduto: id }
       })
