@@ -83,6 +83,10 @@ const categoriaController = {
   destroy: async (req, res) => {
     const { id } = req.params
     try {
+      const categoria = await Categoria.findOne({ where: { id: id } })
+      if (!categoria) {
+        return res.status(404).json({ Message: 'Category Not Found' })
+      }
       await Produto.update({
         idCategoria: null
       }, {
@@ -93,8 +97,9 @@ const categoriaController = {
       await Categoria.destroy({
         where: { id: id }
       })
+      const produtosAtualizados = await Produto.findAll({ where: { idCategoria: null } })
 
-      return res.status(200).json('Category deleted')
+      return res.status(200).json({ ProdutosAtualizados: produtosAtualizados, Message: 'Category deleted' })
     } catch (error) {
       console.log(error)
 
