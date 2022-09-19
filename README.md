@@ -19,7 +19,7 @@ Abaixo segue as rotas existentes
 [PATCH]  /produtos/:id 	
 [DELETE] /produtos/:id
 
-[GET] 	 /produtos/:id/estoque	
+[GET] 	 /produtos/:id/estoque  Nesse caso deve usar o id produto para a busca
 [PATCH]  /produtos/:id/estoque
 [DELETE] /produtos/:id/estoque
 
