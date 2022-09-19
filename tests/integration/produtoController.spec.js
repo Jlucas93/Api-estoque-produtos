@@ -1,6 +1,7 @@
 const server = require('../../index.js')
 const request = require('supertest')
 const dbConnection = require('../../src/database/models')
+const { Estoque } = require('../../src/database/models')
 
 describe('PRODUTOS', () => {
 
@@ -13,7 +14,13 @@ describe('PRODUTOS', () => {
       valor: 569.99,
       status: 0
     })
-
+    const estoque = await Estoque.create({
+      idProduto: response.body.Produto.id,
+      quantidade: 0,
+      reserva: 0,
+      status: 0
+    })
+    expect(estoque.idProduto).toBe(1)
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(201)
     expect(response.body).toHaveProperty('Produto.id')
@@ -82,6 +89,8 @@ describe('PRODUTOS', () => {
   })
   //Rotas de DELETE
   it('É possível deletar um produto e seu estoque', async () => {
+    await Estoque.destroy({ where: { idProduto: 1 } })
+
     const response = await request(server).delete('/produtos/1')
 
     expect(response.status).toEqual(200)
