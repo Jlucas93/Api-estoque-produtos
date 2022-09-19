@@ -10,13 +10,13 @@ describe('Teste Unitários Produto', () => {
       nome: 'NovoNome',
       descricao: 'NovaDescricao',
       valor: 353.63,
-      status: 0
+      status: 1
     })
     const estoque = await Estoque.create({
       idProduto: produto.id,
       quantidade: 0,
       reserva: 0,
-      status: 0
+      status: 1
     })
     expect(estoque.idProduto).toBe(1)
     expect(produto).toBeDefined()
@@ -30,15 +30,15 @@ describe('Teste Unitários Produto', () => {
 
   })
   it('Buscado um produto por id', async () => {
-    const produto = await Produto.findOne({ where: { id: 1 } })
+    const produto = await Produto.findOne({ where: { status: 1 } })
 
     expect(produto).toBeDefined()
     expect(produto.codigo).toBe('NovoCodigo1')
   })
   it('Deletando uma produto e seu estoque', async () => {
-    await Estoque.destroy({ where: { idProduto: 1 } })
-    await Produto.destroy({ where: { id: 1 } })
-    const produto = await Produto.findOne({ where: { id: 1 } })
+    await Estoque.destroy({ where: { status: 1 } })
+    await Produto.destroy({ where: { status: 1 } })
+    const produto = await Produto.findOne({ where: { status: 1 } })
 
 
     expect(produto).toBeNull()

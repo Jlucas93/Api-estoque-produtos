@@ -34,7 +34,7 @@ describe('CATEGORIAS', () => {
   })
 
   it('Retorna uma categoria', async () => {
-    const response = await request(server).get('/categorias/1')
+    const response = await request(server).get('/categorias/2')
 
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
@@ -49,7 +49,7 @@ describe('CATEGORIAS', () => {
 
   //Rotas de PATCH
   it('É possível atualizar uma categoria', async () => {
-    const response = await request(server).patch('/categorias/1').send({
+    const response = await request(server).patch('/categorias/2').send({
       titulo: 'Novo Titulo'
     })
 
@@ -58,7 +58,7 @@ describe('CATEGORIAS', () => {
   })
 
   it('Não é possível alterar o status de uma categoria para valores diferentes de 0 e 1', async () => {
-    const response = await request(server).patch('/categorias/1').send({
+    const response = await request(server).patch('/categorias/2').send({
       status: 5
     })
 
@@ -78,7 +78,7 @@ describe('CATEGORIAS', () => {
   //Rotas de DELETE
   it('É possível deletar uma categoria e produtos com o id da categoria são atulizados para null', async () => {
     const novoProduto = await request(server).post("/produtos").send({
-      idCategoria: 1,
+      idCategoria: 2,
       codigo: 'novoCodigo',
       nome: 'Novo Produto',
       descricao: 'Novo Produto Cadastrado',
@@ -90,7 +90,7 @@ describe('CATEGORIAS', () => {
     })
     const produto = await request(server).get(`/produtos/${novoProduto.body.Produto.id}`)
 
-    const response = await request(server).delete('/categorias/1')
+    const response = await request(server).delete('/categorias/2')
 
     expect(produto.body.idCategoria).toBeNull()
     expect(response.status).toEqual(200)

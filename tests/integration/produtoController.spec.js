@@ -42,7 +42,7 @@ describe('PRODUTOS', () => {
   })
 
   it('Retorna uma produto', async () => {
-    const response = await request(server).get('/produtos/1')
+    const response = await request(server).get('/produtos/2')
 
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
@@ -56,7 +56,7 @@ describe('PRODUTOS', () => {
   })
   //Rotas de PATCH
   it('É possível atualizar uma produto', async () => {
-    const response = await request(server).patch('/produtos/1').send({
+    const response = await request(server).patch('/produtos/2').send({
       descricao: 'Nova descricao'
     })
 
@@ -83,9 +83,9 @@ describe('PRODUTOS', () => {
   })
   //Rotas de DELETE
   it('É possível deletar um produto e seu estoque', async () => {
-    await Estoque.destroy({ where: { idProduto: 1 } })
+    await Estoque.destroy({ where: { idProduto: 2 } })
 
-    const response = await request(server).delete('/produtos/1')
+    const response = await request(server).delete('/produtos/2')
 
     expect(response.status).toEqual(200)
   })
