@@ -2,7 +2,7 @@ const server = require('../../index.js')
 const request = require('supertest')
 const dbConnection = require('../../src/database/models')
 
-describe('CATEGORIAS', () => {
+describe('Teste de integração de CATEGORIAS', () => {
   //Rota de POST
   it('É possível criar uma nova categoria', async () => {
     const response = await request(server).post("/categorias").send({
@@ -10,20 +10,20 @@ describe('CATEGORIAS', () => {
       titulo: 'testeInegracao',
       status: 0
     })
-
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(201)
     expect(response.body).toHaveProperty('Categoria.id')
-  }),
-    it('Não é possível criar nova categoria com status diferente de 0 e 1', async () => {
-      const response = await request(server).post("/categorias").send({
-        codigo: "testeInegracao",
-        titulo: 'testeInegracao',
-        status: 2
-      })
+  })
 
-      expect(response.status).toEqual(500)
+  it('Não é possível criar nova categoria com status diferente de 0 e 1', async () => {
+    const response = await request(server).post("/categorias").send({
+      codigo: "testeInegracao",
+      titulo: 'testeInegracao',
+      status: 2
     })
+
+    expect(response.status).toEqual(500)
+  })
   //Rotas de GET
   it('Retorna uma lista de todas categorias', async () => {
     const response = await request(server).get('/categorias')
@@ -33,8 +33,8 @@ describe('CATEGORIAS', () => {
     expect(response.body).toBeDefined()
   })
 
-  it('Retorna uma categoria', async () => {
-    const response = await request(server).get('/categorias/2')
+  it('Retorna uma categoria pelo id', async () => {
+    const response = await request(server).get('/categorias/1')
 
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
@@ -49,7 +49,7 @@ describe('CATEGORIAS', () => {
 
   //Rotas de PATCH
   it('É possível atualizar uma categoria', async () => {
-    const response = await request(server).patch('/categorias/2').send({
+    const response = await request(server).patch('/categorias/1').send({
       titulo: 'Novo Titulo'
     })
 
@@ -58,7 +58,7 @@ describe('CATEGORIAS', () => {
   })
 
   it('Não é possível alterar o status de uma categoria para valores diferentes de 0 e 1', async () => {
-    const response = await request(server).patch('/categorias/2').send({
+    const response = await request(server).patch('/categorias/1').send({
       status: 5
     })
 
@@ -78,7 +78,7 @@ describe('CATEGORIAS', () => {
   //Rotas de DELETE
   it('É possível deletar uma categoria e produtos com o id da categoria são atulizados para null', async () => {
     const novoProduto = await request(server).post("/produtos").send({
-      idCategoria: 2,
+      idCategoria: 3,
       codigo: 'novoCodigo',
       nome: 'Novo Produto',
       descricao: 'Novo Produto Cadastrado',
@@ -90,7 +90,7 @@ describe('CATEGORIAS', () => {
     })
     const produto = await request(server).get(`/produtos/${novoProduto.body.Produto.id}`)
 
-    const response = await request(server).delete('/categorias/2')
+    const response = await request(server).delete('/categorias/3')
 
     expect(produto.body.idCategoria).toBeNull()
     expect(response.status).toEqual(200)

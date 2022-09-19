@@ -3,10 +3,10 @@ const request = require('supertest')
 const dbConnection = require('../../src/database/models')
 const { Estoque } = require('../../src/database/models')
 
-describe('PRODUTOS', () => {
+describe('Teste de integração de PRODUTOS', () => {
 
   //Rota de POST
-  it('É possível criar uma novo produto', async () => {
+  it('É possível criar uma novo produto e seu estoque', async () => {
     const response = await request(server).post("/produtos").send({
       codigo: 'novoCodigo',
       nome: 'Novo Produto',
@@ -20,7 +20,7 @@ describe('PRODUTOS', () => {
     expect(response.body).toHaveProperty('Estoque.id')
   })
 
-  it('Não é possível criar nova produto com status diferente de 0 e 1', async () => {
+  it('Não é possível criar novo produto com status diferente de 0 e 1', async () => {
     const response = await request(server).post("/produtos").send({
       codigo: 'novoCodigo',
       nome: 'Novo Produto',
@@ -41,8 +41,8 @@ describe('PRODUTOS', () => {
     expect(response.body).toBeDefined()
   })
 
-  it('Retorna uma produto', async () => {
-    const response = await request(server).get('/produtos/2')
+  it('Retorna uma produto pelo id', async () => {
+    const response = await request(server).get('/produtos/1')
 
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
@@ -56,7 +56,7 @@ describe('PRODUTOS', () => {
   })
   //Rotas de PATCH
   it('É possível atualizar uma produto', async () => {
-    const response = await request(server).patch('/produtos/2').send({
+    const response = await request(server).patch('/produtos/1').send({
       descricao: 'Nova descricao'
     })
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "cross-env DB_NAME=test npx sequelize db:migrate",
+    "pretest": "cross-env DB_NAME=test npx sequelize db:migrate & cross-env DB_NAME=test npx sequelize db:seed:all",
     "test": "cross-env DB_NAME=test jest",
     "posttest": "cross-env DB_NAME=test npx sequelize db:migrate:undo:all",
     "start": "node server.js",

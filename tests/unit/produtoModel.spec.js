@@ -5,7 +5,7 @@ const { Produto, Estoque } = require('../../src/database/models')
 describe('Teste Unitários Produto', () => {
   it("Criando nova Produto", async () => {
     const produto = await Produto.create({
-      idCategoria: null,
+      idCategoria: 1,
       codigo: 'NovoCodigo1',
       nome: 'NovoNome',
       descricao: 'NovaDescricao',
@@ -18,27 +18,28 @@ describe('Teste Unitários Produto', () => {
       reserva: 0,
       status: 1
     })
-    expect(estoque.idProduto).toBe(1)
+    expect(estoque.idProduto).toBe(produto.id)
     expect(produto).toBeDefined()
   })
 
   it('Lista de produtos', async () => {
     const produto = await Produto.findAll()
 
-    expect(produto.length).toBe(1)
+    expect(produto.length).toBeGreaterThan(1)
     expect(produto).toBeDefined()
 
   })
   it('Buscado um produto por id', async () => {
-    const produto = await Produto.findOne({ where: { status: 1 } })
+    const produto = await Produto.findOne({ where: { id: 1 } })
 
     expect(produto).toBeDefined()
-    expect(produto.codigo).toBe('NovoCodigo1')
+    expect(produto.codigo).toBe('iphone14-1')
   })
+
   it('Deletando uma produto e seu estoque', async () => {
-    await Estoque.destroy({ where: { status: 1 } })
-    await Produto.destroy({ where: { status: 1 } })
-    const produto = await Produto.findOne({ where: { status: 1 } })
+    await Estoque.destroy({ where: { id: 3 } })
+    await Produto.destroy({ where: { id: 3 } })
+    const produto = await Produto.findOne({ where: { id: 3 } })
 
 
     expect(produto).toBeNull()

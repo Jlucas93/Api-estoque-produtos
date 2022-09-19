@@ -2,9 +2,9 @@ const server = require('../../index.js')
 const request = require('supertest')
 const dbConnection = require('../../src/database/models')
 
-describe('ESTOQUE', () => {
+describe('Teste de integração de ESTOQUE', () => {
   //Rotas GET
-  it('Retorna um estoque', async () => {
+  it('Retorna um estoque pelo id do seu  produto', async () => {
     const produto = await request(server).post("/produtos").send({
       codigo: 'novoCodigo',
       nome: 'Novo Produto',
