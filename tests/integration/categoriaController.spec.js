@@ -77,7 +77,7 @@ describe('CATEGORIAS', () => {
 
   //Rotas de DELETE
   it('É possível deletar uma categoria e produtos com o id da categoria são atulizados para null', async () => {
-    await request(server).post("/produtos").send({
+    const novoProduto = await request(server).post("/produtos").send({
       idCategoria: 1,
       codigo: 'novoCodigo',
       nome: 'Novo Produto',
@@ -85,10 +85,10 @@ describe('CATEGORIAS', () => {
       valor: 569.99,
       status: 0
     })
-    await request(server).patch('/produtos/1').send({
+    await request(server).patch(`/produtos/${novoProduto.body.Produto.id}`).send({
       idCategoria: null
     })
-    const produto = await request(server).get('/produtos/1')
+    const produto = await request(server).get(`/produtos/${novoProduto.body.Produto.id}`)
 
     const response = await request(server).delete('/categorias/1')
 

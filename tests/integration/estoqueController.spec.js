@@ -5,15 +5,14 @@ const dbConnection = require('../../src/database/models')
 describe('ESTOQUE', () => {
   //Rotas GET
   it('Retorna um estoque', async () => {
-
-    await request(server).post("/produtos").send({
+    const produto = await request(server).post("/produtos").send({
       codigo: 'novoCodigo',
       nome: 'Novo Produto',
       descricao: 'Novo Produto Cadastrado',
       valor: 569.99,
       status: 0
     })
-    const response = await request(server).get('/produtos/1/estoque')
+    const response = await request(server).get(`/produtos/${produto.body.Produto.id}/estoque`)
 
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(200)
@@ -22,7 +21,14 @@ describe('ESTOQUE', () => {
 
   //Rotas de PATCH
   it('É possível atualizar um estoque', async () => {
-    const response = await request(server).patch('/produtos/1/estoque').send({
+    const produto = await request(server).post("/produtos").send({
+      codigo: 'novoCodigo',
+      nome: 'Novo Produto',
+      descricao: 'Novo Produto Cadastrado',
+      valor: 569.99,
+      status: 0
+    })
+    const response = await request(server).patch(`/produtos/${produto.body.Produto.id}/estoque`).send({
       reserva: 5
     })
 

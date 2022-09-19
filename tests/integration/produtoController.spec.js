@@ -14,16 +14,10 @@ describe('PRODUTOS', () => {
       valor: 569.99,
       status: 0
     })
-    const estoque = await Estoque.create({
-      idProduto: response.body.Produto.id,
-      quantidade: 0,
-      reserva: 0,
-      status: 0
-    })
-    expect(estoque.idProduto).toBe(1)
     expect(response.ok).toBeTruthy()
     expect(response.status).toEqual(201)
     expect(response.body).toHaveProperty('Produto.id')
+    expect(response.body).toHaveProperty('Estoque.id')
   })
 
   it('Não é possível criar nova produto com status diferente de 0 e 1', async () => {
@@ -63,7 +57,7 @@ describe('PRODUTOS', () => {
   //Rotas de PATCH
   it('É possível atualizar uma produto', async () => {
     const response = await request(server).patch('/produtos/1').send({
-      descricao: 'Novo Titulo'
+      descricao: 'Nova descricao'
     })
 
     expect(response.status).toEqual(200)

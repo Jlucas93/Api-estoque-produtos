@@ -48,13 +48,13 @@ const produtoController = {
         valor,
         status
       })
-      await Estoque.create({
+      const estoque = await Estoque.create({
         idProduto: produto.id,
         quantidade: 0,
         reserva: 0,
         status: 0
       })
-      return res.status(201).json({ Produto: produto })
+      return res.status(201).json({ Produto: produto, Estoque: estoque })
     } catch (error) {
       console.log(error)
       return res.status(500).json('Error, product not created')
