@@ -94,7 +94,7 @@ $ npm run test
 #Ele irá popular o banco, rodar os testes e depois apagar os dados do banco
 
 #Caso deseje rodar um teste especifico basta passar o nome dele, como por exemplo categoria
-$ npm test categoria
+$ npm test categoriaController
 ```
 ## 📝 Licença
 
